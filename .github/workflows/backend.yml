@@ -23,10 +23,8 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          npm install express cors axios dotenv
+          npm install express cors axios dotenv buffer
 
       - name: Start Backend
         run: |
-          node backend/server.js &
-          echo "Backend Started"
-          sleep 5400
+          node backend/server.js

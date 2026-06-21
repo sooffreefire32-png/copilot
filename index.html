@@ -1,25 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI Code Debugger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Copilot Terminal</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #terminal {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #000;
+        }
+        .input-line {
+            display: flex;
+        }
+        .prompt {
+            color: #00ff00;
+            margin-right: 10px;
+        }
+        input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: inherit;
+            flex: 1;
+            outline: none;
+        }
+        .output {
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+        .ai-response {
+            color: #569cd6;
+        }
+        .error {
+            color: #f44747;
+        }
+        .system {
+            color: #ce9178;
+        }
+    </style>
 </head>
 <body>
 
-<h2>AI Code Debugger</h2>
+    <div id="terminal">
+        <div class="output system">AI Copilot Terminal v1.0.0</div>
+        <div class="output system">Type your command or ask for help...</div>
+    </div>
 
-<form id="form">
-  <input type="text" id="message" placeholder="Describe problem" required />
-  <br><br>
+    <div class="input-line">
+        <span class="prompt">copilot@user:~$</span>
+        <input type="text" id="command-input" autofocus autocomplete="off">
+    </div>
 
-  <input type="file" id="image" />
-  <br><br>
-
-  <button type="submit">Send</button>
-</form>
-
-<pre id="output"></pre>
-
-<script src="app.js"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>

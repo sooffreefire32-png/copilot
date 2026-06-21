@@ -1,0 +1,32 @@
+name: Run AI Backend
+
+on:
+  workflow_dispatch:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_API: ${{ secrets.GH_API }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm install express cors axios dotenv
+
+      - name: Start Backend
+        run: |
+          node backend/server.js &
+          echo "Backend Started"
+          sleep 5400
